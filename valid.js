@@ -11,7 +11,7 @@ function validateForm() {
     var country = document.contactForm.country.value;
     var gender = document.contactForm.gender.value;
     var hobbies = [];
-    var checkboxes = document.getElementsByName("hobbies[]");
+    var checkboxes = document.getElementsByName("hobbies");
     for(var i=0; i < checkboxes.length; i++) {
         if(checkboxes[i].checked) {
             
@@ -21,12 +21,14 @@ function validateForm() {
     
 	
     var nameErr = emailErr = mobileErr = countryErr = genderErr = true;
+    alert("please upload dtaa")
     
    
     if(name == "") {
         printError("nameErr", "Please enter your name");
     } else {
-        var regex = /^[a-zA-Z\s]+$/;                
+                   
+        var regex = '';
         if(regex.test(name) === false) {
             printError("nameErr", "Please enter a valid name");
         } else {
@@ -40,7 +42,7 @@ function validateForm() {
         printError("emailErr", "Please enter your email address");
     } else {
       
-        var regex = /^\S+@\S+\.\S+$/;
+        var regex = '';
         if(regex.test(email) === false) {
             printError("emailErr", "Please enter a valid email address");
         } else{
@@ -53,7 +55,7 @@ function validateForm() {
     if(mobile == "") {
         printError("mobileErr", "Please enter your mobile number");
     } else {
-        var regex = /^[1-9]\d{9}$/;
+        var regex = '';
         if(regex.test(mobile) === false) {
             printError("mobileErr", "Please enter a valid 10 digit mobile number");
         } else{
